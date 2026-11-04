@@ -1,0 +1,115 @@
+---
+metaTitle: "TrueSeal: Self-Custodial Document Signing & Verification for Android/iOS/PC/Mac"
+metaDescription: "TrueSeal: Enterprise-Grade, Self-Custodial Document Signing & Verification for Android/iOS/PC/Mac"
+publishedAt: March 23, 2024
+metaImage: /apps-icons/truseal.jpeg
+---
+# TrueSeal: Enterprise-Grade, Self-Custodial Document Signing & Verification for Android
+
+In an era of AI-generated content, digital spoofing, and increasing regulatory scrutiny, establishing **mathematically provable authenticity and non-repudiation** for your digital documents is no longer optional. Whether you are an individual sharing sensitive contracts, a developer verifying data integrity, or a legal professional validating government-issued certificates, traditional "e-signatures" (often just flat image overlays) fall dangerously short of true security.
+
+Enter **TrueSeal**, an enterprise-grade, self-custodial cryptographic signature and verification platform built natively for Android using Jetpack Compose, Room, and Firebase.
+
+---
+
+## What is TrueSeal?
+
+TrueSeal empowers users to cryptographically sign, seal, and verify documents, PDFs, images, archives, and arbitrary binary data. By anchoring trust directly in local hardware-backed security modules rather than third-party SaaS servers, TrueSeal ensures that **you remain the sole custodian of your cryptographic identity**.
+
+---
+
+## 🔒 Core Cryptographic Architecture
+
+TrueSeal is engineered from the ground up to offer zero-trust integrity, bulletproof privacy, and strict adherence to cryptographic standards.
+
+### 1. Hardware-Backed Self-Custody & Asymmetric Signatures
+
+* **Algorithm:** Implements the **NIST P-256 (secp256r1)** Elliptic Curve Digital Signature Algorithm (`SHA256withECDSA`).
+* **Hardware Isolation:** Private keys are generated and stored exclusively within the device’s local Android Keystore / Hardware Security Module (HSM). Private keys **never** transit network sockets, cloud backups, or third-party servers.
+
+### 2. Universal DSC & eSign Verifier
+
+TrueSeal goes beyond local signatures by featuring an automated verifier for standard PDF Digital Signature Certificates (DSC). It seamlessly inspects and validates:
+
+* **Government & eSign Certificates:** Aadhaar eSign, e-PAN digital signatures, and Income Tax Return (ITR-V) DSCs.
+* **Corporate & Standard PKCS#7 / PAdES:** Complete validation of standard certificate hierarchies, CA root anchors, and byte-range integrity.
+
+### 3. Stream-Based Cryptographic Hashing
+
+* Uses **FIPS 180-4 Secure Hash Standard (SHA-256)** digests calculated stream-by-stream, allowing TrueSeal to hash large files and archives efficiently without hitting memory limits or leaking unencrypted buffers.
+
+### 4. Deterministic Vault Backup & Encryption
+
+* **Vault Security:** The local private key vault is encrypted using **AES-256-GCM**, with keys derived via `PBKDF2WithHmacSHA256` utilizing 12,000 iterations and cryptographic salt.
+* **12-Word Mnemonic Recovery:** Features a BIP-39 style deterministic 12-word mnemonic backup system accompanied by a mandatory pre-activation verification challenge to prevent user setup errors.
+
+### 5. Real-Time Tamper Detection & Custom Watermarking
+
+* **Instant Verification:** Offers immediate cross-user validation. Valid documents receive a prominent **Big Green Verified Badge**, while even a single-bit file alteration immediately triggers a stark **Red Cross Warning**.
+* **Configurable Overlay:** Customize signature watermarks in app settings with Multi-line (default) or Single-line formats positioned across 6 locations (Bottom Right, Bottom Center, Bottom Left, Top Right, Top Center, Top Left).
+
+---
+
+## 🚀 Native System Integration ("Open With")
+
+TrueSeal hooks directly into Android’s system-level file manager and share sheets, providing a frictionless workflow across your device:
+
+* **Open with TrueSeal Verify:** Tap any PDF, signed file, or standalone certificate from your system file manager to immediately inspect certificate hierarchies, byte-range integrity, and signature validity.
+* **TrueSeal Sign Document:** Select any image, document, or archive from native system storage to stamp and cryptographically sign it on the fly using your local keys.
+
+---
+
+## 📁 Dedicated Management & Verification Audit Trails
+
+TrueSeal features two distinct local file management hubs to keep your workflow structured and auditable:
+
+```
+                  ┌─────────────────────────────────────────┐
+                  │            TrueSeal Platform            │
+                  └────────────────────┬────────────────────┘
+                                       │
+            ┌──────────────────────────┴──────────────────────────┐
+            ▼                                                     ▼
+┌───────────────────────┐                             ┌───────────────────────┐
+│ Exported Files Hub    │                             │ Verified Audit Trail  │
+├───────────────────────┤                             ├───────────────────────┤
+│ • Exported PDFs       │                             │ • Audit History       │
+│ • Standalone .trueseal│                             │ • Valid / Tampered    │
+│ • Quick Actions       │                             │ • Certificate Details │
+└───────────────────────┘                             └───────────────────────┘
+
+```
+
+### 1. Exported Files Manager
+
+A unified dashboard showing all your signed assets, embedded copies, and standalone `.trueseal` certificates.
+
+* **Filtering:** Easily filter by format (PDFs, Images, Standalone Certificates).
+* **Quick Actions:** Open files in external viewers, share instantly, re-verify byte integrity, or clean up local exports.
+
+### 2. Verified Documents History & Audit Inspection
+
+A comprehensive, immutable local audit trail built on Room database architecture tracking every document you inspect.
+
+* **Status & Category Filtering:** Categorize by validity state (Valid vs. Tampered/Invalid) or source type (Aadhaar/Govt DSC vs. TrueSeal).
+* **Deep Certificate Inspection:** View technical certificate breakdowns including Common Name (CN), Organization (O), Issuer CA, exact Signing Timestamp, Serial Number, and Byte-Range coverage.
+* **Proof Generation:** Generate and export shareable verification proof reports for compliance or legal proceedings.
+
+---
+
+## Modern Tech Stack
+
+Built using modern Android development practices, TrueSeal pairs UI responsiveness with bulletproof backend logic:
+
+* **UI:** 100% Jetpack Compose for declarative, fluid layout rendering.
+* **Database:** Room DB for local-first persistence, audit logging, and caching.
+* **Backend Integration:** Firebase for optional metadata syncing and app performance monitoring.
+* **Architecture:** Clean Architecture + MVVM with Kotlin Coroutines and Flow for seamless async file hashing and cryptography.
+
+---
+
+## Getting Started
+
+Whether you are seeking a reliable self-custodial signature solution for personal privacy or an enterprise verification audit tool for official documents, TrueSeal puts cryptographic proof right in your pocket.
+
+Stay tuned for our upcoming release on GitHub and Google Play!
