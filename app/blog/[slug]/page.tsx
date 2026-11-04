@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 	const { frontmatter } = await getMdxBySlug(BLOG_BASE, slug);
 	return {
 		...baseMetadata,
-		title: `${frontmatter.metaTitle} – Radix UI`,
+		title: `${frontmatter.metaTitle} – Narzary`,
 		description: frontmatter.metaDescription,
 		openGraph: frontmatter.metaImage ? { images: [frontmatter.metaImage] } : undefined,
 	};

@@ -23,7 +23,7 @@ const description = "Stay in the loop with the latest Radix news, straight from 
 
 export const metadata: Metadata = {
 	...baseMetadata,
-	title: "Blog – Radix UI",
+	title: "Blog – Dr. Sanjib Narzary",
 	description,
 	openGraph: {
 		// Resolved against `metadataBase`.
