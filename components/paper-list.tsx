@@ -6,7 +6,7 @@ import { CheckIcon, CopyIcon, DownloadIcon } from "@radix-ui/react-icons";
 import type { Paper } from "@data/papers";
 import { citationFormats, formatCitation, type CitationFormat } from "@utils/citations";
 
-const typeLabels = { conference: "Conference", journal: "Journal", preprint: "Preprint" } as const;
+const typeLabels = { conference: "Conference", journal: "Journal", preprint: "Preprint", thesis: "Thesis" } as const;
 
 function PaperCard({ paper }: { paper: Paper }) {
 	const [copied, setCopied] = React.useState(false);
@@ -38,7 +38,7 @@ function PaperCard({ paper }: { paper: Paper }) {
 		<Card size="3">
 			<Flex direction="column" gap="3" height="100%">
 				<Flex gap="2" align="center">
-					<Badge color={paper.type === "journal" ? "blue" : paper.type === "conference" ? "violet" : "orange"}>
+					<Badge color={paper.type === "journal" ? "blue" : paper.type === "conference" ? "violet" : paper.type === "preprint" ? "orange" : "gray"}>
 						{typeLabels[paper.type]}
 					</Badge>
 					<Badge variant="outline" color="gray">

@@ -1,4 +1,4 @@
-export type PaperType = "conference" | "journal" | "preprint";
+export type PaperType = "conference" | "journal" | "preprint" | "thesis";
 
 export type Paper = {
 	id: string;
@@ -15,6 +15,15 @@ export type Paper = {
 };
 
 export const papers: Paper[] = [
+	{
+		id: "narzary2026mt",
+		type: "thesis",
+		authors: ["Narzary, Sanjib"],
+		title: "(An) Evaluative Study on English-Bodo Machine Translation System",
+		venue: "Indian Institute of Technology Guwahati",
+		year: 2026,
+		publisher: "Gyan Thesis Repository & Analytics, IIT Guwahati",
+	},
 	{
 		id: "narzary2025pivot",
 		type: "journal",
