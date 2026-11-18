@@ -41,7 +41,7 @@ Welcome to **Narzary GPS Camera Map** ("Application", "we", "us", or "our"). By 
 ---
 
 ## 5. Privacy, Local Storage & Security
-- **On-Device Storage:** All captured photos, videos, and offline maps are saved locally to your device's storage (`Movies/NarzaryGPSMapCamera` and `Pictures/NarzaryGPSMapCamera`).
+- **On-Device Storage:** All captured photos, videos, and offline maps are saved locally to your device's storage (`Movies/FieldCamGPSCamera` and `Pictures/FieldCamGPSCamera`).
 - **No Background Tracking:** The application only accesses location and camera sensors when actively in use or during explicit user-initiated workflows. No personal location history is transmitted to any external server without user consent.
 
 ---
