@@ -150,9 +150,9 @@ const MainContent = () => (
 						highContrast
 						style={{ flexGrow: 1 }}
 					>
-						<NextLink href="https://cit.ac.in/profile-cse-dr-sanjib-narzary">
+						<NextLink href="/research">
 							<GridIcon width="18" height="18" style={{ marginTop: 1 }} />
-							My Profile
+							My Research
 						</NextLink>
 					</Button>
 				</Flex>
